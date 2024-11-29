@@ -1,15 +1,111 @@
-### Restaurant Review Analysis System
 
-The **Restaurant Review Analysis System** is a desktop-based application built using Python's Tkinter library for the graphical user interface (GUI). It allows restaurant owners and customers to interact with the system in two distinct roles:
+#  Restaurant Review Analysis System
 
-- **Customer**: Users can submit reviews for the food items they have consumed. The system uses Natural Language Processing (NLP) techniques to analyze the sentiment of the submitted review, classify it as positive or negative, and update the restaurant’s internal data accordingly.
-  
-- **Owner**: The restaurant owner can log in to access a dashboard that displays an analysis of the customer reviews, showing overall sentiment for different food items. This helps the owner keep track of customer satisfaction and make informed business decisions.
+A sentiment analysis-based system for analyzing restaurant reviews and presenting data about food items' popularity and customer sentiment. The application uses a Naive Bayes classifier for sentiment analysis and provides an interactive GUI for displaying the results.
 
-### Key Features:
-- **Customer Review Submission**: Customers can select multiple food items, submit a review, and the system will analyze and classify the sentiment using machine learning models (like a sentiment classifier).
-- **Owner Dashboard**: Owners can log in using a secure login page and view aggregated data on customer feedback, allowing them to evaluate the performance of their menu items.
-- **Sentiment Analysis**: The app preprocesses customer reviews by removing stopwords and stemming words. A machine learning model then predicts the sentiment of the review.
-- **Database Management**: Food item data is stored in a SQLite database, tracking the number of customers, positive reviews, and overall sentiment for each dish.
 
-This project demonstrates a practical application of NLP and machine learning in the restaurant industry, allowing restaurant owners to better understand customer feedback through an easy-to-use interface.
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Screenshots](#screenshots)
+- [Future Improvements](#future-improvements)
+## Features
+- Sentiment analysis of restaurant reviews using a Naive Bayes classifier.
+- Storage and management of review data in a SQLite database.
+- Interactive GUI to view and analyze review data by food items.
+- Dynamic updating of review statistics based on new inputs.
+## Technologies Used
+
+- **Python**: Core programming language.
+- **SQLite**: For database management.
+- **Scikit-learn**: For building the Naive Bayes classifier.
+- **Tkinter**: For GUI development.
+- **NLTK**: For text preprocessing and sentiment analysis.
+## Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- SQLite installed on your system
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+
+2. Install required Python packages:
+   ```bash
+   pip install -r requirements.txt
+
+3. Set up the database:
+   ```bash
+   python setup_database.py
+4. Download NLTK stopwords:
+   ```bash
+   python -c "import nltk; nltk.download('stopwords')"
+
+
+
+
+## Usage
+
+1. Run the main application:
+   ```bash
+   python app.py
+
+2. The GUI will launch:
+- input a restaurant review.
+- Select relevant food items from the list.
+- Submit the review for sentiment analysis.
+
+3. View the updated food item statistics in the View Details section.
+
+4. To verify the current contents of the database:
+    ```bash
+    python database_verification.py
+
+
+
+
+## Project Structure
+
+   ```bash
+    ├── analysis.py               # GUI for viewing food item statistics
+    ├── app.py                    # Main application entry point
+    ├── database.py               # Database operations
+    ├── database_verification.py  # Verify database contents
+    ├── interface.py              # GUI component for database visualization
+    ├── preprocessing.py          # Text preprocessing and model training
+    ├── requirements.txt          # List of dependencies
+    ├── Restaurant_Reviews.tsv    # Dataset
+    ├── Restaurant_food_data.db   # SQLite database
+    ├── setup_database.py         # Database setup script
+    └── README.md                 # Project documentation
+  ```
+
+
+
+## Screenshots
+
+![alt text](Images/IMG20210607000011.jpg)
+
+![alt text](Images/IMG20210607000708.jpg)
+
+![alt text](Images/IMG20210607000743.jpg)
+
+![alt text](Images/IMG20210607000815.jpg)
+
+
+## Future Improvements
+
+- Allow dynamic addition of food items through the GUI.
+- Add real-time sentiment visualization graphs.
+- Implement user authentication for better access control.
+- Improve model performance by experimenting with other algorithms like SVM or deep learning.
+## License
+
+This project is licensed under the MIT License.
